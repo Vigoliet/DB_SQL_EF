@@ -26,9 +26,11 @@ namespace ContactData
 
         private void listBox1_SelectedIndexChanged(object sender, EventArgs e)
         {
-            //ListBox Persons = sender as ListBox;
-            //People SelectedPerson = Persons.SelectedItem as People;
+            ListBox Persons = sender as ListBox;
+            People SelectedPerson = Persons.SelectedItem as People;
             //MessageBox.Show("Test");
+
+            label1.Text = $"Phonenumber: {SelectedPerson.PhoneNumber}";
         }
     }
     public partial class People

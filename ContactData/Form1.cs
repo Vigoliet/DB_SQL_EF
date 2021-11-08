@@ -33,6 +33,30 @@ namespace ContactData
             PhoneNumber.Text = $"Phonenumber: {SelectedPerson.PhoneNumber}";
             ID.Text = $"ID of Contact: {SelectedPerson.Id}";
         }
+
+        private void btnAdd_Click(object sender, EventArgs e)
+        {
+            Button Add = sender as Button;
+
+            //Adding a new item to the server
+            using (var context = new PeopleEntities())
+            {
+                var newperson = new People
+                {
+                    FirstName = textBox1.Text,
+                    LastName = textBox2.Text,
+                    PhoneNumber = int.Parse(PhoneNumberTxt.Text)
+                };
+                context.People.Add(newperson);
+                context.SaveChanges();
+            }
+            //clears the boxes
+            textBox1.Clear();
+            textBox2.Clear();
+            PhoneNumberTxt.Clear();
+            MessageBox.Show("Användare inlaggd");
+
+        }
     }
     public partial class People
     {

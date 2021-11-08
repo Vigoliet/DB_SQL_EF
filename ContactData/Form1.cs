@@ -30,7 +30,8 @@ namespace ContactData
             People SelectedPerson = Persons.SelectedItem as People;
             //MessageBox.Show("Test");
 
-            label1.Text = $"Phonenumber: {SelectedPerson.PhoneNumber}";
+            PhoneNumber.Text = $"Phonenumber: {SelectedPerson.PhoneNumber}";
+            ID.Text = $"ID of Contact: {SelectedPerson.Id}";
         }
     }
     public partial class People
